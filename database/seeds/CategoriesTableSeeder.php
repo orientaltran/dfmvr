@@ -171,7 +171,7 @@ class CategoriesTableSeeder extends Seeder
                 'icon_class' => 'voyager-categories',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 8,
+                'order'      => 3,
             ])->save();
         }
 

@@ -1,0 +1,29 @@
+.form-control {
+    height: 40px;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.form-group label {
+    color: #333;
+    font-weight: 500;
+}
+
+.panel-body .select2-selection {
+    border: 1px solid #ccc;
+    height: 40px;
+}
+
+.table {
+    color: #333;
+}
+
+.voyager .table>thead>tr>th {
+    background: #ecedee;
+    font-weight: bold;
+}
+
+table.dataTable thead>tr>th {
+    padding-left: 10px;
+    padding-right: 10px;
+}
