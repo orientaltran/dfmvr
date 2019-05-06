@@ -20,12 +20,12 @@ class PostsTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'posts',
-                'display_name_singular' => __('voyager::seeders.data_types.post.singular'),
-                'display_name_plural'   => __('voyager::seeders.data_types.post.plural'),
+                'display_name_singular' => 'Post',
+                'display_name_plural'   => 'Posts',
                 'icon'                  => 'voyager-news',
-                'model_name'            => 'TCG\\Voyager\\Models\\Post',
+                'model_name'            => 'App\\Models\\Post',
                 'policy_name'           => 'TCG\\Voyager\\Policies\\PostPolicy',
-                'controller'            => '',
+                'controller'            => 'App\\Http\\Controllers\\Admin\\PostController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
