@@ -6,11 +6,8 @@ $ cp .env.example .env
 $ php artisan key:generate
 $ composer install
 $ npm install
-$ php artisan migrate --seed
-$ chmod -R 777 storage/logs storage/framework/ storage/debugbar
-$ chmod -R 775 storage/app
-
 $ php artisan voyager:install --with-dummy
+$ php artisan migrate --seed
 ```
 
 - User: admin@admin.com
