@@ -25,4 +25,9 @@ $ php artisan make:repository [Model_Name] --skip-migration
 php artisan migrate:generate [table_list]
 ```
 
-## Create layout
+## Package Reference:
+
+- https://github.com/the-control-group/voyager
+- https://github.com/andersao/l5-repository
+- https://github.com/backup-manager/laravel
+- https://github.com/Xethron/migrations-generator
