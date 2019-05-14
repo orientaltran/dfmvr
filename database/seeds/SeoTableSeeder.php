@@ -7,7 +7,7 @@ use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Permission;
 
-class ServiceModelsTableSeeder extends Seeder
+class SeoTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -17,14 +17,14 @@ class ServiceModelsTableSeeder extends Seeder
     public function run()
     {
         //Data Type
-        $dataType = $this->dataType('slug', 'service_models');
+        $dataType = $this->dataType('slug', 'seos');
         if (!$dataType->exists) {
             $dataType->fill([
-                'name'                  => 'service_models',
-                'display_name_singular' => 'Service Model',
-                'display_name_plural'   => 'Service Models',
+                'name'                  => 'seos',
+                'display_name_singular' => 'SEO',
+                'display_name_plural'   => 'SEO',
                 'icon'                  => 'voyager-new',
-                'model_name'            => 'App\\Models\\ServiceModel',
+                'model_name'            => 'App\\Models\\Seo',
                 'controller'            => '',
                 'generate_permissions'  => 1,
                 'description'           => '',
@@ -32,8 +32,8 @@ class ServiceModelsTableSeeder extends Seeder
         }
 
         //Data Rows
-        $serviceModelDataType = DataType::where('slug', 'service_models')->firstOrFail();
-        $dataRow = $this->dataRow($serviceModelDataType, 'id');
+        $seoDataType = DataType::where('slug', 'seos')->firstOrFail();
+        $dataRow = $this->dataRow($seoDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'number',
@@ -48,28 +48,7 @@ class ServiceModelsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'service_id');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => 'Service',
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 0,
-                'details'      => [
-                    'relationship' => [
-                        'key'   => 'id',
-                        'label' => 'title',
-                    ],
-                ],
-                'order'        => 2,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($serviceModelDataType, 'title');
+        $dataRow = $this->dataRow($seoDataType, 'title');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
@@ -80,11 +59,11 @@ class ServiceModelsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 2,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'description');
+        $dataRow = $this->dataRow($seoDataType, 'description');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text_area',
@@ -95,15 +74,30 @@ class ServiceModelsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($seoDataType, 'keyword');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Keyword',
+                'required'     => 1,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
                 'order'        => 4,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'link');
+        $dataRow = $this->dataRow($seoDataType, 'seoable_type');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => 'Link',
+                'display_name' => 'Seoable Type',
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -114,11 +108,11 @@ class ServiceModelsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'list_features');
+        $dataRow = $this->dataRow($seoDataType, 'seoable_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'code_editor',
-                'display_name' => 'List Features',
+                'type'         => 'number',
+                'display_name' => 'Seoable ID',
                 'required'     => 1,
                 'browse'       => 0,
                 'read'         => 1,
@@ -129,29 +123,7 @@ class ServiceModelsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'status');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'select_dropdown',
-                'display_name' => __('voyager::seeders.data_rows.status'),
-                'required'     => 1,
-                'browse'       => 1,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'details'      => [
-                    'default' => 'INACTIVE',
-                    'options' => [
-                        'INACTIVE' => 'INACTIVE',
-                        'ACTIVE'   => 'ACTIVE',
-                    ],
-                ],
-                'order' => 7,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($serviceModelDataType, 'created_at');
+        $dataRow = $this->dataRow($seoDataType, 'created_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -162,11 +134,11 @@ class ServiceModelsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 8,
+                'order'        => 7,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($serviceModelDataType, 'updated_at');
+        $dataRow = $this->dataRow($seoDataType, 'updated_at');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
@@ -177,7 +149,7 @@ class ServiceModelsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 9,
+                'order'        => 8,
             ])->save();
         }
 
@@ -185,9 +157,9 @@ class ServiceModelsTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Service Models',
-            'url'     => '/admin/service_models',
-            'route'   => 'voyager.service_models.index',
+            'title'   => 'SEO',
+            'url'     => '/admin/seos',
+            'route'   => 'voyager.seos.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
@@ -195,12 +167,12 @@ class ServiceModelsTableSeeder extends Seeder
                 'icon_class' => 'voyager-new',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 8,
+                'order'      => 9,
             ])->save();
         }
 
         //Permissions
-        Permission::generateFor('service_models');
+        Permission::generateFor('seos');
     }
 
     /**
