@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(\Database\Seeds\ServiceModelsTableSeeder::class);
         $this->call(\Database\Seeds\SeoTableSeeder::class);
         $this->call(\Database\Seeds\SeoUrlsTableSeeder::class);
+        $this->call(\Database\Seeds\ContactTableSeeder::class);
+        $this->call(\Database\Seeds\PartnersTableSeeder::class);
     }
 }
