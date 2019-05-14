@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
         $this->call(VoyagerDummyDatabaseSeeder::class);
         
         $this->call(\Database\Seeds\ProjectCategoriesTableSeeder::class);
-/*        $this->call(\Database\Seeds\ProjectsTableSeeder::class);
+        $this->call(\Database\Seeds\ProjectsTableSeeder::class);
         $this->call(\Database\Seeds\NewsCategoriesTableSeeder::class);
         $this->call(\Database\Seeds\NewsTableSeeder::class);
         $this->call(\Database\Seeds\ServicesTableSeeder::class);
         $this->call(\Database\Seeds\ServiceModelsTableSeeder::class);
         $this->call(\Database\Seeds\SeoTableSeeder::class);
-        $this->call(\Database\Seeds\SeoUrlsTableSeeder::class);*/
+        $this->call(\Database\Seeds\SeoUrlsTableSeeder::class);
     }
 }

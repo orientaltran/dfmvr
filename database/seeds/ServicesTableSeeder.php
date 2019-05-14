@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeds;
+
 use App\Models\Service;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
@@ -191,7 +194,7 @@ class ServicesTableSeeder extends Seeder
         Permission::generateFor('services');
 
         //Content
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
         $service = Service::firstOrNew([
             'slug' => 'service-1',
         ]);

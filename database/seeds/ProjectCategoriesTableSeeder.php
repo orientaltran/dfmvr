@@ -20,7 +20,7 @@ class ProjectCategoriesTableSeeder extends Seeder
     {
         //Data Type
         $dataType = $this->dataType('slug', 'project_categories');
-        if ($dataType->exists) {
+        if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'project_categories',
                 'display_name_singular' => 'Project Categories',
