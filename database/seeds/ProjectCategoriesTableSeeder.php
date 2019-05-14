@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeds;
+
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
@@ -18,7 +20,7 @@ class ProjectCategoriesTableSeeder extends Seeder
     {
         //Data Type
         $dataType = $this->dataType('slug', 'project_categories');
-        if (!$dataType->exists) {
+        if ($dataType->exists) {
             $dataType->fill([
                 'name'                  => 'project_categories',
                 'display_name_singular' => 'Project Categories',
