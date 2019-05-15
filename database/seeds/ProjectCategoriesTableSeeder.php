@@ -199,19 +199,25 @@ class ProjectCategoriesTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
+        $projectsMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Projects',
+            'url'     => '',
+            'route'   => null
+        ]);
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Project Categories',
+            'title'   => 'Categories',
             'url'     => '/admin/project_categories',
             'route'   => 'voyager.project_categories.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-new',
+                'icon_class' => 'voyager-categories',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 6,
+                'parent_id'  => $projectsMenuItem->id,
+                'order'      => 2,
             ])->save();
         }
 

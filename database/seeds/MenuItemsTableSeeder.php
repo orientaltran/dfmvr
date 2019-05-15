@@ -173,5 +173,53 @@ class MenuItemsTableSeeder extends Seeder
                 'order'      => 14,
             ])->save();
         }
+
+        $projectsMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Projects',
+            'url'     => '',
+            'route'   => null
+        ]);
+        if (!$projectsMenuItem->exists) {
+            $projectsMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-documentation',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 8,
+            ])->save();
+        }
+
+        $newsMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'News',
+            'url'     => '',
+            'route'   => null
+        ]);
+        if (!$newsMenuItem->exists) {
+            $newsMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-news',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 8,
+            ])->save();
+        }
+
+        $servicesMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Services',
+            'url'     => '',
+            'route'   => null
+        ]);
+        if (!$servicesMenuItem->exists) {
+            $servicesMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-truck',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 8,
+            ])->save();
+        }
     }
 }

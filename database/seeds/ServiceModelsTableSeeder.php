@@ -183,19 +183,25 @@ class ServiceModelsTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
+        $servicesMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Services',
+            'url'     => '',
+            'route'   => null
+        ]);
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Service Models',
+            'title'   => 'Models',
             'url'     => '/admin/service_models',
             'route'   => 'voyager.service_models.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-new',
+                'icon_class' => 'voyager-truck',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 8,
+                'parent_id'  => $servicesMenuItem->id,
+                'order'      => 2,
             ])->save();
         }
 

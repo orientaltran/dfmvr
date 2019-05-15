@@ -206,9 +206,15 @@ class NewsTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
-        $menuItem = MenuItem::firstOrNew([
+        $newsMenuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => 'News',
+            'url'     => '',
+            'route'   => null
+        ]);
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'List',
             'url'     => '/admin/news',
             'route'   => 'voyager.news.index',
         ]);
@@ -217,8 +223,8 @@ class NewsTableSeeder extends Seeder
                 'target'     => '_self',
                 'icon_class' => 'voyager-news',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 7,
+                'parent_id'  => $newsMenuItem->id,
+                'order'      => 1,
             ])->save();
         }
 

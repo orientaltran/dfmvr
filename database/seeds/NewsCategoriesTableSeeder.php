@@ -199,19 +199,25 @@ class NewsCategoriesTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
+        $newsMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'News',
+            'url'     => '',
+            'route'   => null
+        ]);
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'News Categories',
+            'title'   => 'Categories',
             'url'     => '/admin/news_categories',
             'route'   => 'voyager.news_categories.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-news',
+                'icon_class' => 'voyager-categories',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 7,
+                'parent_id'  => $newsMenuItem->id,
+                'order'      => 2,
             ])->save();
         }
 

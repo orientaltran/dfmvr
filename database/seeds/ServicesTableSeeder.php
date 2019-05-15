@@ -172,19 +172,25 @@ class ServicesTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
-        $menuItem = MenuItem::firstOrNew([
+        $servicesMenuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => 'Services',
+            'url'     => '',
+            'route'   => null
+        ]);
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'List',
             'url'     => '/admin/services',
             'route'   => 'voyager.services.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-new',
+                'icon_class' => 'voyager-truck',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 8,
+                'parent_id'  => $servicesMenuItem->id,
+                'order'      => 1,
             ])->save();
         }
 

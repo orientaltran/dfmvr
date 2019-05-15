@@ -206,19 +206,25 @@ class ProjectsTableSeeder extends Seeder
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
-        $menuItem = MenuItem::firstOrNew([
+        $projectsMenuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title'   => 'Projects',
+            'url'     => '',
+            'route'   => null
+        ]);
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'List',
             'url'     => '/admin/projects',
             'route'   => 'voyager.projects.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-new',
+                'icon_class' => 'voyager-documentation',
                 'color'      => null,
-                'parent_id'  => null,
-                'order'      => 6,
+                'parent_id'  => $projectsMenuItem->id,
+                'order'      => 1,
             ])->save();
         }
 
