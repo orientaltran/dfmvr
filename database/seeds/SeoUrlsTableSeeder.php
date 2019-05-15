@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeds;
-
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;

@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeds;
-
 use App\Models\Service;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
@@ -72,7 +70,7 @@ class ServicesTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text_area',
                 'display_name' => 'Description',
-                'required'     => 1,
+                'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,

@@ -19,7 +19,7 @@ class CreateServiceModelsTable extends Migration
             $table->bigInteger('service_id')->unsigned()->nullable();
             $table->foreign('service_id')->references('id')->on('services')->onUpdate('CASCADE')->onDelete('SET NULL');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('link');
             $table->json('list_features');
             $table->enum('status', ServiceModel::$statuses)->default(ServiceModel::STATUS_INACTIVE);

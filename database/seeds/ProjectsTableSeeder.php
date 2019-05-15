@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeds;
-
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
@@ -91,7 +89,7 @@ class ProjectsTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text_area',
                 'display_name' => 'Description',
-                'required'     => 1,
+                'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
@@ -139,36 +137,6 @@ class ProjectsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($projectDataType, 'meta_description');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.meta_description'),
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 7,
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($projectDataType, 'meta_keywords');
-        if (!$dataRow->exists) {
-            $dataRow->fill([
-                'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.meta_keywords'),
-                'required'     => 1,
-                'browse'       => 0,
-                'read'         => 1,
-                'edit'         => 1,
-                'add'          => 1,
-                'delete'       => 1,
-                'order'        => 8,
-            ])->save();
-        }
-
         $dataRow = $this->dataRow($projectDataType, 'status');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -187,7 +155,7 @@ class ProjectsTableSeeder extends Seeder
                         'ACTIVE'   => 'ACTIVE',
                     ],
                 ],
-                'order' => 9,
+                'order' => 7,
             ])->save();
         }
 
@@ -202,7 +170,7 @@ class ProjectsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 10,
+                'order'        => 8,
             ])->save();
         }
 
@@ -217,7 +185,7 @@ class ProjectsTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 11,
+                'order'        => 9,
             ])->save();
         }
 
@@ -232,7 +200,7 @@ class ProjectsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 12,
+                'order'        => 10,
             ])->save();
         }
 

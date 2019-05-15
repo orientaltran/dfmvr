@@ -16,7 +16,7 @@ class CreateSeosTable extends Migration
         Schema::create('seos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('keyword');
             $table->string('seoable_type');
             $table->bigInteger('seoable_id');

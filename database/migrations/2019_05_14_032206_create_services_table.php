@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('content');
             $table->string('slug')->unique();
             $table->enum('status', Service::$statuses)->default(Service::STATUS_INACTIVE);

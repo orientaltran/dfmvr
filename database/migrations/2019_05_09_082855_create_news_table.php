@@ -19,12 +19,10 @@ class CreateNewsTable extends Migration
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('project_categories')->onUpdate('CASCADE')->onDelete('SET NULL');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('content');
             $table->string('image')->nullable();
             $table->string('slug')->unique();
-            $table->text('meta_description');
-            $table->text('meta_keywords');
             $table->enum('status', News::$statuses)->default(News::STATUS_INACTIVE);
             $table->timestamps();
         });
