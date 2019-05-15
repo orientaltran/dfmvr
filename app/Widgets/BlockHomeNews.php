@@ -4,7 +4,7 @@ namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
 
-class BlockExample extends AbstractWidget
+class BlockHomeNews extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -19,10 +19,12 @@ class BlockExample extends AbstractWidget
      */
     public function run()
     {
-        //
+        $news =  app(\App\Repositories\Eloquent\NewsRepositoryEloquent::class);
+        $data = $news->getLimit(4);
 
-        return view('widgets.block_example', [
+        return view('widgets.block_home_news', [
             'config' => $this->config,
+            'data' => $data,
         ]);
     }
 }

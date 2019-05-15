@@ -9,6 +9,16 @@ class News extends Model
 {
     use Translatable;
 
+    protected $fillable = [
+        'category_id',
+        'title',
+        'description',
+        'content',
+        'image',
+        'slug',
+        'status',
+    ];
+
     protected $translatable = ['title', 'slug', 'description', 'content'];
 
     /**
