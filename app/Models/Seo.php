@@ -12,4 +12,12 @@ class Seo extends Model
     protected $translatable = ['title', 'description', 'keyword'];
 
     protected $guarded = [];
+
+    /**
+     * Get all of the owning seoable models.
+     */
+    public function seoable()
+    {
+        return $this->morphTo();
+    }
 }

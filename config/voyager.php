@@ -118,6 +118,7 @@ return [
         'locales' => [
             'en',
             'fr',
+            'vi'
         ],
     ],
 

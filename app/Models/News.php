@@ -55,4 +55,12 @@ class News extends Model
     {
         return $this->belongsTo(ProjectCategory::class);
     }
+
+    /**
+     * Get the news's seo.
+     */
+    public function seo()
+    {
+        return $this->morphOne(Seo::class, 'seoable');
+    }
 }

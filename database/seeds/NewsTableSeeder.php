@@ -25,7 +25,7 @@ class NewsTableSeeder extends Seeder
                 'display_name_plural'   => 'News',
                 'icon'                  => 'voyager-news',
                 'model_name'            => 'App\\Models\\News',
-                'controller'            => '',
+                'controller'            => 'App\\Http\\Controllers\\Admin\\NewsController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();

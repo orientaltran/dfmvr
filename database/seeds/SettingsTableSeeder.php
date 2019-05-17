@@ -14,7 +14,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.title'),
-                'value'        => 'DFM CMS',
+                'value'        => 'DFM VR',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -26,7 +26,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.description'),
-                'value'        => 'DFM CMS',
+                'value'        => 'DFM VR',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -74,7 +74,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.title'),
-                'value'        => 'DFM CMS',
+                'value'        => 'DFM VR',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -86,7 +86,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.admin.description'),
-                'value'        => 'DFM base project',
+                'value'        => 'DFM VR',
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
