@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Trails\Seoable;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
 
 class News extends Model
 {
-    use Translatable;
+    use Translatable, Seoable;
 
     protected $fillable = [
         'category_id',
@@ -54,13 +55,5 @@ class News extends Model
     public function categoryId()
     {
         return $this->belongsTo(ProjectCategory::class);
-    }
-
-    /**
-     * Get the news's seo.
-     */
-    public function seo()
-    {
-        return $this->morphOne(Seo::class, 'seoable');
     }
 }

@@ -18,18 +18,18 @@ class ProjectsTableSeeder extends Seeder
     {
         //Data Type
         $dataType = $this->dataType('slug', 'projects');
-        if (!$dataType->exists) {
+//        if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'projects',
-                'display_name_singular' => 'Projects',
+                'display_name_singular' => 'Project',
                 'display_name_plural'   => 'Projects',
                 'icon'                  => 'voyager-new',
                 'model_name'            => 'App\\Models\\Project',
-                'controller'            => '',
+                'controller'            => 'App\\Http\\Controllers\\Admin\\ProjectController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
-        }
+//        }
 
         //Data Rows
         $projectDataType = DataType::where('slug', 'projects')->firstOrFail();
@@ -127,7 +127,8 @@ class ProjectsTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
                     'slugify' => [
-                        'origin' => 'title',
+                        'origin'      => 'title',
+                        'forceUpdate' => true,
                     ],
                     'validation' => [
                         'rule'  => 'unique:projects,slug',

@@ -15,12 +15,15 @@ class Contact extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $translatable = ['name', 'phone', 'email', 'address', 'field', 'message', 'status'];
+    protected $translatable = ['address', 'field', 'message'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
 
+    const STATUS_ACTIVE = 'ACTIVE';
+    const STATUS_INACTIVE = 'INACTIVE';
+
+    protected $fillable = ['name', 'phone', 'email', 'address', 'field', 'message', 'status'];
 }

@@ -21,7 +21,7 @@ class ProjectCategoriesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'project_categories',
-                'display_name_singular' => 'Project Categories',
+                'display_name_singular' => 'Project Category',
                 'display_name_plural'   => 'Project Categories',
                 'icon'                  => 'voyager-new',
                 'model_name'            => 'App\\Models\\ProjectCategory',
@@ -135,7 +135,8 @@ class ProjectCategoriesTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
                     'slugify' => [
-                        'origin' => 'name',
+                        'origin'      => 'name',
+                        'forceUpdate' => true,
                     ],
                     'validation' => [
                         'rule'  => 'unique:project_categories,slug',
@@ -225,7 +226,7 @@ class ProjectCategoriesTableSeeder extends Seeder
         Permission::generateFor('project_categories');
 
         //Content
-        $project = \App\Models\ProjectCategory::firstOrNew([
+        /*$project = \App\Models\ProjectCategory::firstOrNew([
             'slug' => 'category-1',
         ]);
         if (!$project->exists) {
@@ -233,7 +234,7 @@ class ProjectCategoriesTableSeeder extends Seeder
                 'name'   => 'Category 1',
                 'status' => 'ACTIVE',
             ])->save();
-        }
+        }*/
     }
 
     /**

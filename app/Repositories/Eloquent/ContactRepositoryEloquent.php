@@ -25,7 +25,10 @@ class ContactRepositoryEloquent extends BaseRepository implements ContactReposit
         return Contact::class;
     }
 
-    
+    public function saveContact($data) 
+    {
+        return $this->create($data);
+    } 
 
     /**
      * Boot up the repository, pushing criteria

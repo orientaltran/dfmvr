@@ -21,7 +21,7 @@ class NewsCategoriesTableSeeder extends Seeder
         if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'news_categories',
-                'display_name_singular' => 'News Categories',
+                'display_name_singular' => 'News Category',
                 'display_name_plural'   => 'News Categories',
                 'icon'                  => 'voyager-news',
                 'model_name'            => 'App\\Models\\NewsCategory',
@@ -135,7 +135,8 @@ class NewsCategoriesTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
                     'slugify' => [
-                        'origin' => 'name',
+                        'origin'      => 'name',
+                        'forceUpdate' => true,
                     ],
                     'validation' => [
                         'rule'  => 'unique:news_categories,slug',
@@ -225,7 +226,7 @@ class NewsCategoriesTableSeeder extends Seeder
         Permission::generateFor('news_categories');
 
         //Content
-        $news = \App\Models\NewsCategory::firstOrNew([
+        /*$news = \App\Models\NewsCategory::firstOrNew([
             'slug' => 'category-1',
         ]);
         if (!$news->exists) {
@@ -233,7 +234,7 @@ class NewsCategoriesTableSeeder extends Seeder
                 'name'   => 'Category 1',
                 'status' => 'ACTIVE',
             ])->save();
-        }
+        }*/
     }
 
     /**

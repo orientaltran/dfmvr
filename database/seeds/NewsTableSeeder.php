@@ -18,7 +18,7 @@ class NewsTableSeeder extends Seeder
     {
         //Data Type
         $dataType = $this->dataType('slug', 'news');
-        if (!$dataType->exists) {
+//        if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'news',
                 'display_name_singular' => 'News',
@@ -29,7 +29,7 @@ class NewsTableSeeder extends Seeder
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
-        }
+//        }
 
         //Data Rows
         $newsDataType = DataType::where('slug', 'news')->firstOrFail();
@@ -127,7 +127,8 @@ class NewsTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
                     'slugify' => [
-                        'origin' => 'title',
+                        'origin'      => 'title',
+                        'forceUpdate' => true,
                     ],
                     'validation' => [
                         'rule'  => 'unique:news,slug',

@@ -19,10 +19,12 @@ class BlockHomeProject extends AbstractWidget
      */
     public function run()
     {
-        //
+        $projects =  app(\App\Repositories\Eloquent\ProjectRepositoryEloquent::class);
+        $data = $projects->getLimit(8);
 
         return view('widgets.block_home_project', [
             'config' => $this->config,
+            'data' => $data,
         ]);
     }
 }

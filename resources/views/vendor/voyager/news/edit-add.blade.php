@@ -138,7 +138,7 @@
                         </div>
                     </div>
 
-                    <div class="panel">
+                    {{--<div class="panel">
                         <div class="panel-heading">
                             <h3 class="panel-title">{{ __('news.additional_fields') }}</h3>
                             <div class="panel-actions">
@@ -177,7 +177,7 @@
                                 @endif
                             @endforeach
                         </div>
-                    </div>
+                    </div>--}}
 
                 </div>
                 <div class="col-md-4">
@@ -236,6 +236,7 @@
                         </div>
                     </div>
 
+                    <!-- ### SEO CONTENT ### -->
                     @include('vendor.voyager.seo.edit-add')
                 </div>
             </div>

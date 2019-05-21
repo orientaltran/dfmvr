@@ -1,4 +1,3 @@
-<!-- ### SEO CONTENT ### -->
 <div class="panel panel-bordered panel-info">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="icon wb-search"></i> {{ __('seo.seo_content') }}</h3>

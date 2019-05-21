@@ -10,16 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [
+    'as'   => 'index',
+    'uses' => 'Front\IndexController@index',
+]);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/', function () {
-    return view('frontend.index.index');
-});
-
-
+Route::post('contact', [
+    'as'   => 'contact',
+    'uses' => 'Front\ContactController@post',
+]);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

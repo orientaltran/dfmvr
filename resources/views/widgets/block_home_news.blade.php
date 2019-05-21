@@ -7,7 +7,7 @@
             @foreach($data as $item)
             <div class="col-xs-18 col-sm-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="{{ $item->image }}" alt="{{ $item->name }}">
+                    <img src="{{ Storage::url($item->image) }}" alt="{{ $item->name }}">
                     <div class="caption mt-3">
 
                         <h4>{{ $item->title }}</h4>

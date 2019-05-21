@@ -89,11 +89,6 @@ class ContactTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => [
-                    'validation' => [
-                        'rule'  => 'email|unique:contacts,email',
-                    ],
-                ],
                 'order'        => 4,
             ])->save();
         }

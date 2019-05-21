@@ -20,18 +20,18 @@ class ServicesTableSeeder extends Seeder
     {
         //Data Type
         $dataType = $this->dataType('slug', 'services');
-        if (!$dataType->exists) {
+//        if (!$dataType->exists) {
             $dataType->fill([
                 'name'                  => 'services',
                 'display_name_singular' => 'Service',
                 'display_name_plural'   => 'Services',
                 'icon'                  => 'voyager-new',
                 'model_name'            => 'App\\Models\\Service',
-                'controller'            => '',
+                'controller'            => 'App\\Http\\Controllers\\Admin\\ServiceController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
-        }
+//        }
 
         //Data Rows
         $serviceDataType = DataType::where('slug', 'services')->firstOrFail();
@@ -108,7 +108,8 @@ class ServicesTableSeeder extends Seeder
                 'delete'       => 1,
                 'details'      => [
                     'slugify' => [
-                        'origin' => 'title',
+                        'origin'      => 'title',
+                        'forceUpdate' => true,
                     ],
                     'validation' => [
                         'rule'  => 'unique:services,slug',
@@ -198,7 +199,7 @@ class ServicesTableSeeder extends Seeder
         Permission::generateFor('services');
 
         //Content
-        $faker = Factory::create();
+        /*$faker = Factory::create();
         $service = Service::firstOrNew([
             'slug' => 'service-1',
         ]);
@@ -209,7 +210,7 @@ class ServicesTableSeeder extends Seeder
                 'content'     => '<p>' . implode("</p>\n<p>", $faker->paragraphs) . '</p>',
                 'status'      => 'ACTIVE',
             ])->save();
-        }
+        }*/
     }
 
     /**

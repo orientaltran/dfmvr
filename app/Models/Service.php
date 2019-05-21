@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Trails\Seoable;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Translatable;
 
 class Service extends Model
 {
-    use Translatable;
+    use Translatable, Seoable;
 
     protected $translatable = ['title', 'slug', 'description', 'content'];
 
