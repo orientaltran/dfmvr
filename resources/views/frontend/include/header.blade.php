@@ -1,4 +1,4 @@
-<header class="header dfm-banner">
+<header class="header {{ Request::is('/') === route('index') ? 'dfm-banner' : 'menu-hr' }}">
     <nav id='cssmenu' class="container nav-fill w-100 menu">
         <div class="logo">
              <a href="{{ route('index') }}">
@@ -18,10 +18,10 @@
                 <a href='#'>Dịch vụ</a>
             </li>
             <li class="item-menu">
-                <a href='#'>Tin tức</a>
+                <a href='{{route('news.index')}}'>Tin tức</a>
             </li>
             <li class="item-menu">
-                <a href='#'>Liên hệ</a>
+                <a href='{{route('contact')}}'>Liên hệ</a>
             </li>
             <li class="item-menu">
                 <a class="lag" href='#'>VIE</a>

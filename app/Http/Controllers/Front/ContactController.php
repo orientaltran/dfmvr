@@ -1,14 +1,14 @@
 <?php namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Eloquent\ContactRepositoryEloquent;
+use App\Repositories\Contracts\ContactRepository;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    public function __construct(ContactRepositoryEloquent $repository)
+    public function __construct(ContactRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -27,18 +27,24 @@ class ContactController extends Controller
         ];
 
         $validator = Validator::make($data, [
-            'email' => 'required|email',
-            'name'  => 'required',
-            'phone' => 'required',
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'phone'   => 'required',
+            'field'   => 'required',
+            'message' => 'required'
         ]);
-
         if ($validator->fails()) {
-            return ['error' => 1, 'message' => __('contacts.messages.erro')];
+            return ['error' => 1, 'message' => $validator->errors()->all()[0] ];
         }
 
         $this->repository->saveContact($data);
 
-        return ['error' => 0, 'message' => __('contacts.messages.success')];
+        return ['error' => 0, 'message' => 'Success !!!'];
+    }
+
+    public function get()
+    {
+        return view('frontend.contact.index');
     }
 
 }

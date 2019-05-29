@@ -17,7 +17,7 @@ class CreateNewsCategoriesTable extends Migration
         Schema::create('news_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('parent_id')->unsigned()->nullable();
-            $table->foreign('parent_id')->references('id')->on('project_categories')->onUpdate('CASCADE')->onDelete('SET NULL');
+            $table->foreign('parent_id')->references('id')->on('news_categories')->onUpdate('CASCADE')->onDelete('SET NULL');
             $table->integer('order')->default(1);
             $table->string('name');
             $table->string('slug')->unique();

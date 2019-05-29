@@ -2,14 +2,26 @@
 
 namespace App\Models;
 
-use App\Models\Trails\Seoable;
 use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
+use App\Models\Trails\Seoable;
 use TCG\Voyager\Traits\Translatable;
 
-class Service extends Model
+/**
+ * Class Service.
+ *
+ * @package namespace App\Models;
+ */
+class Service extends Model implements Transformable
 {
-    use Translatable, Seoable;
+    use TransformableTrait, Translatable, Seoable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $translatable = ['title', 'slug', 'description', 'content'];
 
     /**

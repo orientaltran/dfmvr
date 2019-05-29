@@ -4,16 +4,16 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Contracts\ProjectRepository;
-use App\Models\Project;
-use App\Validators\ProjectValidator;
+use App\Repositories\Contracts\ServiceRepository;
+use App\Models\Service;
+use App\Validators\ServiceValidator;
 
 /**
- * Class ProjectRepositoryEloquent.
+ * Class ServiceRepositoryEloquent.
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class ProjectRepositoryEloquent extends BaseRepository implements ProjectRepository
+class ServiceRepositoryEloquent extends BaseRepository implements ServiceRepository
 {
     /**
      * Specify Model class name
@@ -22,13 +22,10 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
      */
     public function model()
     {
-        return Project::class;
+        return Service::class;
     }
 
-    public function getLimit($limit)
-    {
-        return $this->model->active()->limit($limit)->get();
-    }
+    
 
     /**
      * Boot up the repository, pushing criteria
@@ -36,6 +33,11 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function getLimit($limit)
+    {
+        return $this->model->active()->limit($limit)->get();
     }
     
 }

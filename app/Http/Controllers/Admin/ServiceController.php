@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Trails\Seoable;
 use App\Http\Controllers\Voyager\VoyagerBaseController;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use TCG\Voyager\Facades\Voyager;
 
 class ServiceController extends VoyagerBaseController
 {
+    use Seoable;
+
     /**
      * Update the specified resource in storage.
      *
@@ -46,7 +49,7 @@ class ServiceController extends VoyagerBaseController
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
         // Save SEO
-        $data->seo()->update($request->only(['seo_title', 'meta_description', 'meta_keywords']));
+        $this->saveSeo($request, $data);
 
         event(new BreadDataUpdated($dataType, $data));
 
@@ -79,7 +82,7 @@ class ServiceController extends VoyagerBaseController
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
         // Save SEO
-        $data->seo()->create($request->only(['seo_title', 'meta_description', 'meta_keywords']));
+        $this->saveSeo($request, $data);
 
         event(new BreadDataAdded($dataType, $data));
 

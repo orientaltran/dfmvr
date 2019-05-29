@@ -38,5 +38,10 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         return $this->model->active()->limit($limit)->get();
     }
+
+    Public function getPaginate($pagination)
+    {
+        return $this->model->active()->paginate($pagination);
+    }
     
 }

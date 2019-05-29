@@ -9,7 +9,7 @@ class Seo extends Model
 {
     use Translatable;
 
-    protected $translatable = ['title', 'description', 'keyword'];
+    protected $translatable = ['seo_title', 'meta_description', 'meta_keywords'];
 
     protected $guarded = [];
 

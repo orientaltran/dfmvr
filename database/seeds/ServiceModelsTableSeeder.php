@@ -23,7 +23,7 @@ class ServiceModelsTableSeeder extends Seeder
                 'name'                  => 'service_models',
                 'display_name_singular' => 'Service Model',
                 'display_name_plural'   => 'Service Models',
-                'icon'                  => 'voyager-new',
+                'icon'                  => 'voyager-truck',
                 'model_name'            => 'App\\Models\\ServiceModel',
                 'controller'            => '',
                 'generate_permissions'  => 1,

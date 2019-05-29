@@ -3,6 +3,7 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
+use App\Repositories\Contracts\NewsRepository;
 
 class BlockHomeNews extends AbstractWidget
 {
@@ -19,7 +20,7 @@ class BlockHomeNews extends AbstractWidget
      */
     public function run()
     {
-        $news =  app(\App\Repositories\Eloquent\NewsRepositoryEloquent::class);
+        $news =  app(NewsRepository::class);
         $data = $news->getLimit(4);
 
         return view('widgets.block_home_news', [

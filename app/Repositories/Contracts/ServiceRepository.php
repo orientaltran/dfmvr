@@ -5,11 +5,11 @@ namespace App\Repositories\Contracts;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ProjectRepository.
+ * Interface ServiceRepository.
  *
  * @package namespace App\Repositories\Contracts;
  */
-interface ProjectRepository extends RepositoryInterface
+interface ServiceRepository extends RepositoryInterface
 {
-    public function getLimit($limit);
+    //
 }

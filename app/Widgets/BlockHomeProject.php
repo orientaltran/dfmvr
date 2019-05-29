@@ -3,7 +3,7 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
-
+use App\Repositories\Contracts\ProjectRepository;
 class BlockHomeProject extends AbstractWidget
 {
     /**
@@ -19,12 +19,12 @@ class BlockHomeProject extends AbstractWidget
      */
     public function run()
     {
-        $projects =  app(\App\Repositories\Eloquent\ProjectRepositoryEloquent::class);
-        $data = $projects->getLimit(8);
+        $projects = app(ProjectRepository::class);
+        $data     = $projects->getLimit(3);
 
         return view('widgets.block_home_project', [
             'config' => $this->config,
-            'data' => $data,
+            'data'   => $data,
         ]);
     }
 }

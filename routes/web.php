@@ -20,6 +20,17 @@ Route::post('contact', [
     'uses' => 'Front\ContactController@post',
 ]);
 
+Route::get('contact', [
+    'as'   => 'contact',
+    'uses' => 'Front\ContactController@get',
+]);
+
+Route::get('news', [
+    'as'   => 'news.index',
+    'uses' => 'Front\NewsController@index',
+]);
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

@@ -25,7 +25,7 @@ class ServicesTableSeeder extends Seeder
                 'name'                  => 'services',
                 'display_name_singular' => 'Service',
                 'display_name_plural'   => 'Services',
-                'icon'                  => 'voyager-new',
+                'icon'                  => 'voyager-truck',
                 'model_name'            => 'App\\Models\\Service',
                 'controller'            => 'App\\Http\\Controllers\\Admin\\ServiceController',
                 'generate_permissions'  => 1,
