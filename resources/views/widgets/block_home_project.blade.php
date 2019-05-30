@@ -7,7 +7,7 @@
             @foreach ($data as $item)
             <div class="col-xs-6 col-sm-4 col-md-3 item">
                 <div class="item-image">
-                    <img src="{{ asset('frontend/images/banner/project1.png')}}" alt="{{ $item->title }}" />
+                    <img src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}" />
                 </div>
                 <div class="item-text">
                     <div class="item-text-wrapper">
@@ -16,7 +16,7 @@
                         <span class="item-text-footer">3D model, VR view, App</span>
                     </div>
                 </div>
-                <a class="item-link" href="{{ $item->slug }}">Ligula Ridiculus Tortor</a>
+                <a class="item-link" href="{{ route('project.detail', $item->slug) }}">{{ $item->categoryId->name }}</a>
             </div>    
             @endforeach
         </div>

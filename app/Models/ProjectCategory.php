@@ -11,6 +11,8 @@ class ProjectCategory extends Model
 
     protected $translatable = ['name', 'slug', 'description'];
 
+    protected $fillable = ['parent_id', 'order', 'name', 'slug', 'description', 'status'];
+
     /**
      * Statuses.
      */

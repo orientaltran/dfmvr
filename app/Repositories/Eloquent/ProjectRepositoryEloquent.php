@@ -37,5 +37,20 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    Public function getPaginate($pagination)
+    {
+        return $this->model->active()->paginate($pagination);
+    }
+
+    Public function getDetail($slug)
+    {
+        return $this->model->active()->where('slug', $slug)->first();
+    }
+
+    public function getWithCategory ($id, $pagination) 
+    {
+        return $this->model->active()->where('category_id', $id)->paginate($pagination);   
+    }
     
 }

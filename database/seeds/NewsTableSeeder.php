@@ -6,6 +6,7 @@ use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Permission;
+use App\Models\News;
 
 class NewsTableSeeder extends Seeder
 {
@@ -231,6 +232,27 @@ class NewsTableSeeder extends Seeder
 
         //Permissions
         Permission::generateFor('news');
+
+
+        //Content
+        $faker = \Faker\Factory::create();
+
+        for($i=1;$i<10;$i++){
+            $page = News::firstOrNew([
+                'slug' => 'content-news-'.$i,
+            ]);
+            if (!$page->exists) {
+                $page->fill([
+                    'category_id' => 1,
+                    'title'       => 'Hello World News '.$i,
+                    'description' => $faker->text,
+                    'content'     => '<p>'.$faker->text.'</p>',
+                    'image'       => 'pages/page1.jpg',
+                    'status'      => 'ACTIVE',
+                ])->save();
+            }
+        }
+
     }
 
     /**

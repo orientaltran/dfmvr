@@ -226,15 +226,24 @@ class ProjectCategoriesTableSeeder extends Seeder
         Permission::generateFor('project_categories');
 
         //Content
-        /*$project = \App\Models\ProjectCategory::firstOrNew([
+        $project = \App\Models\ProjectCategory::firstOrNew([
             'slug' => 'category-1',
         ]);
         if (!$project->exists) {
             $project->fill([
-                'name'   => 'Category 1',
+                'name'   => 'Category Project 1',
                 'status' => 'ACTIVE',
             ])->save();
-        }*/
+        }
+        $project = \App\Models\ProjectCategory::firstOrNew([
+            'slug' => 'category-2',
+        ]);
+        if (!$project->exists) {
+            $project->fill([
+                'name'   => 'Category Project 2',
+                'status' => 'ACTIVE',
+            ])->save();
+        }
     }
 
     /**

@@ -5,11 +5,12 @@ namespace App\Repositories\Contracts;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface PartnerRepository.
+ * Interface PagesRepository.
  *
  * @package namespace App\Repositories\Contracts;
  */
-interface PartnerRepository extends RepositoryInterface
+interface PageRepository extends RepositoryInterface
 {
-    public function getPartnersById($slug);
+    //Get data page by id
+    public function getDetail($slug);
 }

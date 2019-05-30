@@ -11,6 +11,8 @@ class NewsCategory extends Model
 
     protected $translatable = ['name', 'slug', 'description'];
 
+
+    protected $fillable = ['parent_id', 'order', 'name', 'slug', 'description', 'status'];
     /**
      * Statuses.
      */
@@ -44,5 +46,10 @@ class NewsCategory extends Model
     public function parentId()
     {
         return $this->belongsTo(self::class);
+    }
+
+    public function news()
+    {
+        return $this->hasMany(\App\Models\News::class);
     }
 }

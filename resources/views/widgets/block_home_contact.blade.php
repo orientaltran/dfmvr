@@ -3,8 +3,10 @@
 @endpush
 <section class="row contact mt-5">
     <div class="content container">
+        @if(  url()->current() == route('index') )
         <h4 class="text-uppercase tt-name">Liên hệ</h4>
         <hr class="underlined">
+        @endif
         <div class="title">
             <p> Bạn còn thắc mắc? Gọi ngay
                 <span>(+84) 0283 715 8010</span>

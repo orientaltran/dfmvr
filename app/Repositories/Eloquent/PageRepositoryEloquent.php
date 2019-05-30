@@ -4,16 +4,16 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Contracts\PartnerRepository;
-use App\Models\Partner;
-use App\Validators\PartnerValidator;
+use App\Repositories\Contracts\PageRepository;
+use TCG\Voyager\Models\Page;
+use App\Validators\ContactValidator;
 
 /**
- * Class PartnerRepositoryEloquent.
+ * Class ContactRepositoryEloquent.
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class PartnerRepositoryEloquent extends BaseRepository implements PartnerRepository
+class PageRepositoryEloquent extends BaseRepository implements PageRepository
 {
     /**
      * Specify Model class name
@@ -22,14 +22,19 @@ class PartnerRepositoryEloquent extends BaseRepository implements PartnerReposit
      */
     public function model()
     {
-        return Partner::class;
+        return Page::class;
     }
 
-    public function getPartnersById($slug)
+    public function getDetail($slug)
     {
-        $data = Partner::where('position', $slug)->get();
+        $data = Page::where('slug', $slug)->get();
         return   $data;
     }
+
+    public function saveContact($data) 
+    {
+        return $this->create($data);
+    } 
 
     /**
      * Boot up the repository, pushing criteria

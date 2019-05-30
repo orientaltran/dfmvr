@@ -226,7 +226,7 @@ class NewsCategoriesTableSeeder extends Seeder
         Permission::generateFor('news_categories');
 
         //Content
-        /*$news = \App\Models\NewsCategory::firstOrNew([
+        $news = \App\Models\NewsCategory::firstOrNew([
             'slug' => 'category-1',
         ]);
         if (!$news->exists) {
@@ -234,7 +234,25 @@ class NewsCategoriesTableSeeder extends Seeder
                 'name'   => 'Category 1',
                 'status' => 'ACTIVE',
             ])->save();
-        }*/
+        }
+        $news = \App\Models\NewsCategory::firstOrNew([
+            'slug' => 'category-2',
+        ]);
+        if (!$news->exists) {
+            $news->fill([
+                'name'   => 'Category 2',
+                'status' => 'ACTIVE',
+            ])->save();
+        }
+        $news = \App\Models\NewsCategory::firstOrNew([
+            'slug' => 'category-3',
+        ]);
+        if (!$news->exists) {
+            $news->fill([
+                'name'   => 'Category 3',
+                'status' => 'ACTIVE',
+            ])->save();
+        }
     }
 
     /**

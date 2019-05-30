@@ -43,5 +43,23 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         return $this->model->active()->paginate($pagination);
     }
+
+    Public function getDetail($slug)
+    {
+        return $this->model->active()->where('slug', $slug)->first();
+    }
+
+    public function getWithCategory ($id, $pagination) 
+    {
+        return $this->model->active()->where('category_id', $id)->paginate($pagination);   
+    }
+
+    public function getRelation ($id, $category_id, $pagination) 
+    {
+        return $this->model
+                    ->where('category_id', $category_id)
+                    ->where('id', '<>', $id)
+                    ->paginate($pagination);   
+    }
     
 }

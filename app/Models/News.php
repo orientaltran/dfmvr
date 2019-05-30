@@ -54,6 +54,6 @@ class News extends Model
      */
     public function categoryId()
     {
-        return $this->belongsTo(ProjectCategory::class);
+        return $this->belongsTo(\App\Models\NewsCategory::class, 'category_id');
     }
 }

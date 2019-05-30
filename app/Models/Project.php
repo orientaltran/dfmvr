@@ -44,6 +44,6 @@ class Project extends Model
      */
     public function categoryId()
     {
-        return $this->belongsTo(ProjectCategory::class);
+        return $this->belongsTo(\App\Models\ProjectCategory::class, 'category_id');
     }
 }

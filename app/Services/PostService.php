@@ -14,6 +14,4 @@ class PostService extends AbstractService
         $this->repository = $repository;
     }
 
-
-
 }

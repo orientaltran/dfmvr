@@ -4,16 +4,16 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Contracts\PartnerRepository;
-use App\Models\Partner;
-use App\Validators\PartnerValidator;
+use App\Repositories\Contracts\NewsCategoryRepository;
+use App\Models\NewsCategory;
+use App\Validators\NewsCategoryValidator;
 
 /**
- * Class PartnerRepositoryEloquent.
+ * Class NewsCategoryRepositoryEloquent.
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class PartnerRepositoryEloquent extends BaseRepository implements PartnerRepository
+class NewsCategoryRepositoryEloquent extends BaseRepository implements NewsCategoryRepository
 {
     /**
      * Specify Model class name
@@ -22,14 +22,9 @@ class PartnerRepositoryEloquent extends BaseRepository implements PartnerReposit
      */
     public function model()
     {
-        return Partner::class;
+        return NewsCategory::class;
     }
 
-    public function getPartnersById($slug)
-    {
-        $data = Partner::where('position', $slug)->get();
-        return   $data;
-    }
 
     /**
      * Boot up the repository, pushing criteria
@@ -39,4 +34,8 @@ class PartnerRepositoryEloquent extends BaseRepository implements PartnerReposit
         $this->pushCriteria(app(RequestCriteria::class));
     }
     
+    public function getSlug($slug)
+    {
+        return $this->model->active()->where('slug', $slug)->first();
+    }
 }

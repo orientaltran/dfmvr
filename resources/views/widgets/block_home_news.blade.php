@@ -9,9 +9,9 @@
                 <div class="thumbnail">
                     <img src="{{ Storage::url($item->image) }}" alt="{{ $item->name }}">
                     <div class="caption mt-3">
-
+                    <a href="{{ route('news.detail', $item->slug)}}">
                         <h4>{{ $item->title }}</h4>
-                        
+                    </a>        
                         <p class="cus-time">{{ $item->created_at->format('m/d/y') }}</p>
                         
                         <p>{!! str_limit(strip_tags($item->content)) !!}</p>

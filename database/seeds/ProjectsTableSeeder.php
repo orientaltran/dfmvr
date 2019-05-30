@@ -233,6 +233,24 @@ class ProjectsTableSeeder extends Seeder
         Permission::generateFor('projects');
 
         //Content
+        $faker = \Faker\Factory::create();
+
+        for($i=1;$i<10;$i++){
+            $page = \App\Models\Project::firstOrNew([
+                'slug' => 'content-project-'.$i,
+            ]);
+            if (!$page->exists) {
+                $page->fill([
+                    'category_id' => 1,
+                    'title'       => 'Hello World Project '.$i,
+                    'description' => $faker->text,
+                    'content'     => '<p>'.$faker->text.'</p>',
+                    'image'       => 'pages/page1.jpg',
+                    'status'      => 'ACTIVE',
+                ])->save();
+            }
+        }
+
 //        $project = \App\Models\Project::firstOrNew([
 //            'slug' => 'hello-world',
 //        ]);
