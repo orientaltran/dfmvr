@@ -16,14 +16,14 @@ trait Seoable
     {
         $defaultLocale = config('voyager.multilingual.default', 'en');
         $locales = config('voyager.multilingual.locales');
-        $transFields = blank($data->seo) ? ['seo_title', 'meta_description', 'meta_keywords'] : $data->seo->getTranslatableAttributes();
 
-        $array = [];
-        foreach ($transFields as $field) {
-            $array[$field] = json_decode($request->get($field.'_i18n'))->{$defaultLocale};
-        }
-        $seo = $data->seo()->updateOrCreate([], $array);
+        $seo = $data->seo()->updateOrCreate([], [
+            'seo_title'        => json_decode($request->get('seo_title_i18n'))->{$defaultLocale},
+            'meta_keywords'    => json_decode($request->get('meta_keywords_i18n'))->{$defaultLocale},
+            'meta_description' => json_decode($request->get('meta_description_i18n'))->{$defaultLocale},
+        ]);
 
+        $transFields = $seo->getTranslatableAttributes();
         foreach ($locales as $locale) {
             if ($locale !== $defaultLocale) {
                 foreach ($transFields as $field) {

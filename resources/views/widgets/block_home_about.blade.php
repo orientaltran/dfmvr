@@ -1,14 +1,15 @@
 <section class="row introduce mt-5 mb-5">
     <div class="content container">
-        <h4 class="text-uppercase tt-name">Giới Thiệu</h4>
+        <h4 class="text-uppercase tt-name">@lang('frontend.title.about')</h4>
         <hr class="underlined">
         <div class="title">
-            <p>Xin chào! Chúng tôi là
+            @lang('frontend.title.sub_title_about')
+            {{-- <p>Xin chào! Chúng tôi là
                 <span>DFM-VR</span>
             </p>
             <p>Chuyên cung cấp dịch vụ liên quan dến
                 <span>công nghệ thực tế ảo</span>
-            </p>
+            </p> --}}
         </div>
         <div class="row">
             <div class="col-lg-6">

@@ -250,6 +250,8 @@
 @stop
 
 @section('javascript')
+    {!! Html::script('/assets/admin/js/custom.js') !!}
+
     <script>
         $('document').ready(function () {
             $('#slug').slugify();
